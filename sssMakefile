@@ -1,0 +1,17 @@
+WASM=-s WASM=1
+OUT_SUFFIX=wasm
+
+# EMCC_FORCE_STDLIBS: We can make the main module carry all stdlibs, however:
+# EMCC_FORCE_STDLIBS=1 is broken:
+# STDLIBS=EMCC_FORCE_STDLIBS=1
+# https://github.com/kripken/emscripten/issues/5436
+
+# PATH_OPENCV=/opt/homebrew/Cellar/opencv/4.5.5/include/opencv4/opencv2
+
+# EMCC_FORCE_STDLIBS=${PATH_OPENCV}/opencv_core
+
+# STDLIBS=${PATH_OPENCV}/opencv_core
+
+main:
+	mkdir -p OUT
+	pkg-config --cflags --libs opencv4 emcc src/brisk-detector.cpp -o OUT/brisk-detector.js --bind -g3 -std=c++11 -s MAIN_MODULE=1 -s WASM=1 -s MODULARIZE=1 -s FORCE_FILESYSTEM=1

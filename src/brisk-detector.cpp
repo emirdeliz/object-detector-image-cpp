@@ -62,7 +62,10 @@ Mat calc_distance(vector<DMatch> matches)
 	return tab;
 }
 
-int EMSCRIPTEN_KEEPALIVE;
+#ifdef __cplusplus
+extern "C" {
+#endif
+EMSCRIPTEN_KEEPALIVE
 vector<DMatch> get_best_matches(vector<DMatch> matches, Mat distances)
 {
 	Mat index;
@@ -74,6 +77,9 @@ vector<DMatch> get_best_matches(vector<DMatch> matches, Mat distances)
 	}
 	return bestMatches;
 }
+#ifdef __cplusplus
+}
+#endif
 
 // void show_result(Mat img1, Mat img2, vector<KeyPoint> keyImg1, vector<KeyPoint> keyImg2, vector<DMatch> bestMatches)
 // {

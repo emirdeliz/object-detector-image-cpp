@@ -16,6 +16,7 @@ static void help(char *argv[])
                      "Press a key when image window is active to change algorithm or descriptor";
 }
 
+// https://github.com/taylorjg/emscripten-opencv/blob/master/CMakeLists.txt
 // https://medium.com/data-breach/introduction-to-feature-detection-and-matching-65e27179885d
 // https://www.google.com/search?q=ndvi&sxsrf=APq-WBtkySwBa6BGjBxEylPPSfHMzbcrOg:1647268291533&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjr8PbK6MX2AhWUqZUCHd_rCPcQ_AUoAXoECAEQAw&biw=2192&bih=1060&dpr=2.2#imgrc=6WhEgrzjVAVEDM&imgdii=aDdOfd4xNCDNWM
 // clear && rm -rf build && mkdir build && cmake .. && make && ./object_detector_on_image_cpp
