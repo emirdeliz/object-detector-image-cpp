@@ -62,11 +62,8 @@ Mat calc_distance(vector<DMatch> matches)
 	return tab;
 }
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-EMSCRIPTEN_KEEPALIVE
-vector<DMatch> get_best_matches(vector<DMatch> matches, Mat distances)
+int EMSCRIPTEN_KEEPALIVE;
+vector<DMatch>get_best_matches(vector<DMatch> matches, Mat distances)
 {
 	Mat index;
 	sortIdx(distances, index, SORT_EVERY_COLUMN + SORT_ASCENDING);
@@ -77,9 +74,6 @@ vector<DMatch> get_best_matches(vector<DMatch> matches, Mat distances)
 	}
 	return bestMatches;
 }
-#ifdef __cplusplus
-}
-#endif
 
 // void show_result(Mat img1, Mat img2, vector<KeyPoint> keyImg1, vector<KeyPoint> keyImg2, vector<DMatch> bestMatches)
 // {
