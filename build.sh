@@ -1,0 +1,1 @@
+clear && rm -rf build && mkdir build && cd build && cmake .. && make && ./object_detector_on_image_cpp && cd ..
