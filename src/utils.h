@@ -1,9 +1,8 @@
-#include <opencv2/core.hpp>
-#include <opencv2/imgproc.hpp>
-#include <opencv2/features2d.hpp>
-#include <opencv2/highgui.hpp>
-#include <vector>
-#include <iostream>
+#include "opencv2/core.hpp"
+#include "opencv2/highgui.hpp"
+#include "opencv2/features2d.hpp"
+#include "vector"
+#include "iostream"
 
 using namespace cv;
 using namespace std;
@@ -37,7 +36,7 @@ std::tuple<vector<KeyPoint>, vector<KeyPoint>, Mat, Mat, vector<DMatch>> match_i
 	Ptr<Feature2D> detector = BRISK::create();
 	vector<KeyPoint> keyImg1, keyImg2;
 	Mat descImg1, descImg2;
-	
+
 	detector->detect(img1, keyImg1, Mat());
 	// and compute their descriptors with method  compute
 	detector->compute(img1, keyImg1, descImg1);
@@ -62,8 +61,7 @@ Mat calc_distance(vector<DMatch> matches)
 	return tab;
 }
 
-int EMSCRIPTEN_KEEPALIVE;
-vector<DMatch>get_best_matches(vector<DMatch> matches, Mat distances)
+vector<DMatch> get_best_matches(vector<DMatch> matches, Mat distances)
 {
 	Mat index;
 	sortIdx(distances, index, SORT_EVERY_COLUMN + SORT_ASCENDING);
@@ -74,34 +72,3 @@ vector<DMatch>get_best_matches(vector<DMatch> matches, Mat distances)
 	}
 	return bestMatches;
 }
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-	void show_result(Mat img1, Mat img2, vector<KeyPoint> keyImg1, vector<KeyPoint> keyImg2, vector<DMatch> bestMatches)
-	{
-		Mat result;
-		drawMatches(img1, keyImg1, img2, keyImg2, bestMatches, result);
-		imshow("Result", result);
-	}
-
-	int main(int argc, char **argv)
-	{
-		vector<Mat> images = get_images(argc, argv);
-		Mat img1 = images[0];
-		Mat img2 = images[1];
-
-		auto [keyImg1, keyImg2, descImg1, descImg2, matches] = match_image(img1, img2);
-		Ptr<DescriptorMatcher> descriptorMatcher = DescriptorMatcher::create("BruteForce");
-
-		Mat distances = calc_distance(matches);
-		vector<DMatch> bestMatches = get_best_matches(matches, distances);
-
-		show_result(img1, img2, keyImg1, keyImg2, bestMatches);
-		waitKey();
-		return 0;
-	}
-#ifdef __cplusplus
-}
-#endif
