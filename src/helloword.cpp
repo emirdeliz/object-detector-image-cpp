@@ -16,6 +16,8 @@ static void help(char *argv[])
                      "Press a key when image window is active to change algorithm or descriptor";
 }
 
+// /opt/homebrew/Cellar/opencv/4.5.5/include/opencv4
+// /opt/homebrew/Cellar/emscripten/3.1.7/libexec/cmake/Modules/Platform/Emscripten.cmake
 // https://github.com/taylorjg/emscripten-opencv/blob/master/CMakeLists.txt
 // https://www.google.com/search?q=Emscripten+%2B+opencv&sxsrf=APq-WBuOJfxpZOHiBrQYyoLHoS4LX61zAw%3A1648158343571&ei=h-Y8Yu_AIoXI5OUP3p2moAE&ved=0ahUKEwivoOik3N_2AhUFJLkGHd6OCRQQ4dUDCA4&uact=5&oq=Emscripten+%2B+opencv&gs_lcp=Cgdnd3Mtd2l6EAMyBAgAEB4yBAgAEB4yBggAEAgQHjIGCAAQCBAeMgYIABAIEB46BAgAEBM6BggAEB4QEzoICAAQCBAeEBM6BQgAEMsBSgQIQRgASgQIRhgAUABY5Ahg0QpoAHABeACAAeYBiAGIBZIBBTAuMS4ymAEAoAECoAEBwAEB&sclient=gws-wiz
 // https://medium.com/data-breach/introduction-to-feature-detection-and-matching-65e27179885d
