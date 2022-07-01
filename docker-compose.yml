@@ -1,0 +1,16 @@
+version: '3'
+services:
+  object-detector-image-cpp:
+    platform: linux/arm64
+    image: thecanadianroot/opencv-cuda
+    command: ['sh', 'build.sh']
+    container_name: object-detector-image-cpp
+    build:
+      context: .
+    stdin_open: true
+    volumes:
+      - appcode-unison-sync:/home/docker/apps:nocopy
+
+volumes:
+  appcode-unison-sync:
+    external: true
