@@ -3,7 +3,7 @@ services:
   object-detector-image-cpp:
     platform: linux/arm64
     image: thecanadianroot/opencv-cuda
-    command: ['sh', 'build.sh']
+    command: ['sh', 'docker-entrypoint.sh']
     container_name: object-detector-image-cpp
     build:
       context: .
