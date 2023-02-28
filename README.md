@@ -2,4 +2,4 @@
 
 Object detector using opencv and cpp.
 
-<img src="https://raw.githubusercontent.com/emirdeliz/object-detector-image-cpp/master/docs/demo.png" width="400" height="auto" alt="Object Detector - example"/>
+<img src="https://raw.githubusercontent.com/emirdeliz/object-detector-image-cpp/master/docs/demo.png" width="550" height="auto" alt="Object Detector - example"/>
