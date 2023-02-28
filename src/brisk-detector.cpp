@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	minMaxLoc(result, NULL, NULL, NULL, &max_loc);
 
 	rectangle(img1, max_loc, Point(max_loc.x + img2.cols, max_loc.y + img2.rows), Scalar(0, 0, 255), 2);
-	imshow(to_string(max_loc.y + img2.rows), img1);
+	imshow("Object detector", img1);
 
 	// X: 464
 	// Y: 773
